@@ -1,0 +1,72 @@
+#  primitive data types
+# string data type -- there are theree ways to represent strings in yaml
+name : "Revanth"  # double quotes
+city : 'Bangalore' # single quotes
+country : India    # without quotes
+#  for example if we want to write multi line strings we can use the following two methods
+
+bio: Hi my name is reavanth kurapati 
+i am an aspiring devops engineer
+
+#  the above stuff will give error because of the new line in between the yaml parser dont know that .
+#  to avoid that we can use the pipe(|) or greater than(>) symbols
+description1 : |
+  This is a multi line string.
+  It preserves new lines.
+  Useful for writing paragraphs.
+
+ #the above ones will be preserved as it is with new lines
+description2 : >
+  This is a multi line string.
+  It folds new lines into spaces.
+  Useful for long sentences.
+ # the above ones will be converted into a single line string by replacing new lines with spaces.
+
+#  integer data type
+age : 25
+height_cm : 175
+
+#  float data type
+weight_kg : 70.5
+temperature_c : 36.6
+
+# boolean data type
+is_student : true # y , Y , yes, Yes, YES, on, On, ON will be treated as true
+has_license : false # n, N, no, No, NO, off, Off, OFF will be treated as false
+
+
+#specify the data types explicitly using tags( yaml automatically infers data types but we can explicitly specify them using tags)
+age : !!int 25
+height_cm : !!int 175
+weight_kg : !!float 70.5
+temperature_c : !!float 36.6
+is_student : !!bool true
+string_example : !!str 12345  
+positive_number : !!int +42
+negative_number : !!int -42
+max: .inf
+min: -.inf
+not_a_number: .nan
+boolean_true: !!bool "true"
+exponential_number: !!float 1.2e3  # 1.2 × 10^3 = 1200.0
+exponential_number_negative: !!float 5.67E-4  # 5.67 × 10^-4 = 0.000567
+
+# 0 / 0   → NaN
+# ∞ - ∞   → NaN
+# sqrt(-1) (real numbers) → NaN
+
+
+# null data type
+middle_name : null
+nickname : ~
+empty_value :
+# some times keys may be null
+~: "This key is null"
+
+# date and time data types
+birth_date : !!timestamp 1998-04-15
+meeting_time : !!timestamp 2024-06-01T10:30:00Z
+# Z stands for Zulu time, which is another name for Coordinated Universal Time (UTC by default) 
+india_meeting_time : !!timestamp 2024-06-01T16:00:00+05:30
+# +05:30 indicates that the time is 5 hours and 30 minutes ahead of UTC
+event_date : !!timestamp 2024-12-25

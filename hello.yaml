@@ -1,0 +1,30 @@
+# what are the advantages of using yaml?
+# - YAML is human-readable and easy to understand.
+# - It supports complex data structures like lists and dictionaries.
+# - YAML is language-independent and can be used with many programming languages.
+# - has many tools for parsing and generating YAML files.
+# - parsing is easy
+# - easily convertible to other formats like JSON and XML.
+# - It uses indentation to represent structure, making it visually clear. a strict syntax
+#   These key value pairs are currently just the  textual representations of data. they are currently  stored in disk and will be stored in the target device ram  once we parse the yaml file.
+"apple" : "I am a red fruit.",
+1 : "This is revanths roll number."
+---
+#lists
+- bananas
+ - apples
+ - Apples 
+ the list contains three different items because of the case sensitivity.
+--- #these three dashes represent the start of a new document(in this case a block representation of a list)
+#  below is the block representation of a list 
+cities :
+  - New York
+ - Los Angeles # gives an error because of improper indentation
+  - Chicago
+---
+cities: [new york, los angeles, chicago] #inline representation of a list to avoid indentation issues
+---
+{mango:"yellow fruit", age:56} # inline representation of a dictionary
+... #document end marker
+ 
+

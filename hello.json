@@ -1,0 +1,14 @@
+[{
+  "cities": [
+    "New York",
+    "Los Angelesr",
+    "Chicago",
+    "this is an equivalent representation of the cities block of the yaml"
+  ]
+},
+{
+  "mango": "yellow fruit",
+  "age": 56,
+  "something": "this is an equivalent representation of the key-value pairs of the yaml"
+}
+]
