@@ -1,0 +1,17 @@
+#  yaml representation of a school with principal and students
+school :
+  name : Narayana Ramalingapuram school
+  principal : 
+    name : Dr.Ravi kumar
+    age : 50
+    experience : 25 years
+  students : 
+     - name : ajay
+       age : 14
+       grade : 9th
+     - name : revanth
+       age : 15
+       grade : 10th
+     - name : gana
+       age : 14
+       grade : 9th

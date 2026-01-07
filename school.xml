@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!--  the above line is just to tell the machine the version that we are using , since xml is primarly for the machines -->
+<school>
+        <name>Dps scool</name>
+        <principal>Mr. Sharma</principal>
+        <students>
+            <student>
+                <name>John Doe</name>
+                <age>15</age>
+                <rollno>23</rollno>
+                <marks>
+                    <maths>85</maths>
+                    <science>90</science>
+                    <english>88</english>
+                </marks>
+            </student>
+            <student>
+                <name>Jane Smith</name>
+                <age>16</age>
+                <rollno>45</rollno>
+            </student>
+        </students>
+</school>

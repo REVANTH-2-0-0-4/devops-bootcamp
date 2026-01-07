@@ -1,0 +1,190 @@
+# complex data types in yaml
+# list data type
+students :
+  - revanth
+  - gana
+  - ajay
+
+students : [revanth, gana, ajay]
+
+# sometimes the list items are empty which is called as a sparse sequence
+sparse_list : !!seq
+  - radesh
+  - 
+  - revanth
+  - 
+  - Null
+  
+#  list of lists
+matrix : !!seq
+  - [1, 2, 3]
+  - [4, 5, 6]
+  - [7, 8, 9]
+
+# maps
+# !! map is the denotation for map data type
+person : !!map
+  name: revanth
+  age: 24
+  city: Bangalore
+# list of dictionaries
+student : !!seq
+  - name: John Doe
+    age: 21
+    courses:
+      - Math
+      - Science
+      - Literature
+  - name: Jane Smith
+    age: 22
+    courses:
+      - Art
+      - History
+      - Physics
+
+# map of maps
+company : !!map
+  employee1: 
+    name: Alice
+    position: Developer
+    department: IT
+  employee2:
+    name: Bob
+    position: Manager
+    department: HR
+
+employee info : 
+  name : kunal kushwaha
+  details : 
+    age : 24
+    freelance : civo
+
+
+# another representation is 
+employee_info : 
+  name : kunal kushwaha
+  details : {age : 24, freelance : civo}
+
+# map can be represented as this also {key1 : value1, key2 : value2}
+
+
+# some times keys may have duplicate values
+# order is not preserved
+# last occurrence of the key is retained
+duplicate_keys : !!map
+  key1 : value1
+  key2 : value2
+  key1 : value3  # the last occurrence of the key will be retained
+
+# similarly set 
+# order is not preserved
+# duplicate items are ignored
+unique_items : !!set
+  ? item1
+  ? item2
+  ? item3
+  ? item1  # duplicate, will be ignored
+  
+#  pairs data type ( to deal with multiple values as a single unit)
+#  duplicate keys are allowed here
+#  order is preserved
+coordinates : !!pairs
+  - [10, 20]
+  - [30, 40]
+  - [50, 60]
+
+
+indiacoordinates : [10,24]
+  # reusing some properties using anchors (&) and aliases (*)
+default_settings: &default
+  theme: light
+  notifications: enabled
+  
+ user1_settings:
+  name : sumanth
+  <<: *default
+  notifications: disabled  # override default notification setting
+  
+user2_settings:
+  name : revanth
+  <<: *default
+  theme: dark  # override default theme setting
+  
+#  the only data structures where order is preserved are pairs and 
+
+
+#  real world example : lets say there is a school and in school there is name field,principal filed,students field lets say we want to represent this in yaml
+
+school : 
+  name : Narayana Ramalingapuram school
+  principal : 
+    name : Dr.Ravi kumar
+    age : 50
+    experience : 25 years
+    students : 
+     - name : ajay
+       age : 14
+       grade : 9th
+     - name : revanth
+       age : 15
+       grade : 10th
+     - name : gana
+       age : 14
+       grade : 9th
+
+#  the equivalent json representation of the above yaml is 
+{
+  "school": {
+    "name": "Narayana Ramalingapuram school",
+    "principal": {
+      "name": "Dr.Ravi kumar",
+      "age": 50,
+      "experience": "25 years",
+      "students": [
+        {
+          "name": "ajay",
+          "age": 14,
+          "grade": "9th"
+        },
+        {
+          "name": "revanth",
+          "age": 15,
+          "grade": "10th"
+        },
+        {
+          "name": "gana",
+          "age": 14,
+          "grade": "9th"
+        }
+      ]
+    }
+  }
+}
+
+
+#  xml stands for extensible markup language
+#  the equivalent xml representation of the above yaml is
+<school>
+  <name>Narayana Ramalingapuram school</name>
+  <principal>
+    <name>Dr.Ravi kumar</name>
+    <age>50</age>
+    <experience>25 years</experience>
+   <students>
+      <student>
+        <name>ajay</name>
+        <age>14</age>
+        <grade>9th</grade>
+      </student>
+      <student>
+        <name>revanth</name>
+        <age>15</age>
+        <grade>10th</grade>
+      </student>
+      <student>
+        <name>gana</name>
+        <age>14</age>
+        <grade>9th</grade>
+      </student>
+    </students>
+  </principal>

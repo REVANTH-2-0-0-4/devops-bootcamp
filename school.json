@@ -1,0 +1,27 @@
+{
+    "intro about the file : " : "This JSON file contains information about a school including its name, principal, and student details.",
+    "school" :{
+        "name": "Greenwood High",
+        "principal": "Dr. Sarah Johnson",
+        "students": [
+            {
+                "id": 1,
+                "name": "Alice Smith",
+                "age": 14,
+                "grade": "9th"
+            },
+            {
+                "id": 2,
+                "name": "Bob Brown",
+                "age": 15,
+                "grade": "10th"
+            },
+            {
+                "id": 3,
+                "name": "Charlie Davis",
+                "age": 13,
+                "grade": "8th"
+            }
+        ]
+    }
+}
